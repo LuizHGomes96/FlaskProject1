@@ -2,8 +2,23 @@
 
 {% block content %}
 
+{% for message in get_flashed_messages() %}
+<div class="alert alert-dark alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>    
+
+{% endfor %}
+
 {% if name %}
-    <h1>Hope you're enjoying my frist Flask Project, {{ name }}!</h1>
+    <h1>Hope you're enjoying my first Flask Project, {{ name }}!</h1>
+    <h1>This is my chihuahua, Tapauer!</h1>
+    <img src="{{ url_for('static', filename='images/tapauer.jpg') }}">
+    <br/><br/>
+    <p id="demo">Stuff</p>
+    <script src="{{ url_for('static', filename='js/myFile.js') }}">
+
+    </script>
 {% else %}
     <h1>What's your name?</h1>
     <form method="POST">
